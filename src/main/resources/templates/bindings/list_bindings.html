@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bindings Main</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    Bindings Main Page
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <th>BINDINGS ID</th>
+                <th>MODEL</th>
+                <th>BRAND</th>
+                <th>YEAR</th>
+                <th>STRAP</th>
+                <th>FLEX</th>
+                <th>LEVEL</th>
+            </thead>
+            <tbody>
+                <tr th:each="binding:${bindings_list}">
+                    <td th:text="${binding.id}"></td>
+                    <td th:text="${binding.model}"></td>
+                    <td th:text="${binding.brand}"></td>
+                    <td th:text="${binding.year}"></td>
+                    <td th:text="${binding.strap}"></td>
+                    <td th:text="${binding.flex}"></td>
+                    <td th:text="${binding.level}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

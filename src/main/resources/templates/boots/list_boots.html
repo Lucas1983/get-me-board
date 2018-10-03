@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Boots Main</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    Boots Main Page
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <th>BOOTS ID</th>
+            <th>MODEL</th>
+            <th>BRAND</th>
+            <th>YEAR</th>
+            <th>LACING</th>
+            <th>FLEX</th>
+            <th>LEVEL</th>
+            </thead>
+            <tbody>
+            <tr th:each="boots:${boots_list}">
+                <td th:text="${boots.id}"></td>
+                <td th:text="${boots.model}"></td>
+                <td th:text="${boots.brand}"></td>
+                <td th:text="${boots.year}"></td>
+                <td th:text="${boots.lacing}"></td>
+                <td th:text="${boots.flex}"></td>
+                <td th:text="${boots.level}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

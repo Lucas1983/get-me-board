@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Board</title>
+</head>
+<body>
+<h1>Add new Board ...</h1>
+
+    <form action="#" th:action="@{/board/add}" th:object="${board}" method="POST">
+
+        <p> Model
+            <input type="text" th:field="*{model}"/>
+        </p>
+        <p> Brand
+            <select th:field="*{brand}">
+                <option value=""></option>
+                <option th:each="brand:${brands}" th:value="${brand}" th:utext="${brand}"/>
+            </select>
+        </p>
+        <p> Year
+            <input type="text" th:field="*{year}"/>
+        </p>
+        <p>Shape
+            <select th:field="*{shape}">
+                <option value=""></option>
+                <option th:each="shape:${shapes}" th:value="${shape}" th:utext="${shape}"/>
+            </select>
+        </p>
+        <p> Profile
+            <select th:field="*{profile}">
+                <option value=""></option>
+                <option th:each="profile:${profiles}" th:value="${profile}" th:utext="${profile}"/>
+            </select>
+        </p>
+        <p> Type
+            <select th:field="*{type}">
+                <option value=""></option>
+                <option th:each="type:${types}" th:value="${type}" th:utext="${type}"/>
+            </select>
+        </p>
+        <p> Core
+            <select th:field="*{core}">
+                <option value=""></option>
+                <option th:each="core:${cores}" th:value="${core}" th:utext="${core}"/>
+            </select>
+        </p>
+        <p> Base
+            <select th:field="*{base}">
+                <option value=""></option>
+                <option th:each="base:${bases}" th:value="${base}" th:utext="${base}"/>
+            </select>
+        </p>
+        <p> Flex
+            <select th:field="*{flex}">
+                <option value=""></option>
+                <option th:each="flex:${flexes}" th:value="${flex}" th:utext="${flex}"/>
+            </select>
+        </p>
+        <p> Level
+            <select th:field="*{level}">
+                <option value=""></option>
+                <option th:each="level:${levels}" th:value="${level}" th:utext="${level}"/>
+            </select>
+        </p>
+
+        <p><input type="submit" value="Submit"/></p>
+        <p><input type="reset" value="Reset"/></p>
+    </form>
+</body>
+</html>

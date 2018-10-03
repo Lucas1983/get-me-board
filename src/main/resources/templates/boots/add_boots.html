@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Boots</title>
+</head>
+<body>
+<h1>Add new Boots ...</h1>
+
+    <form action="#" th:action="@{/boots/add}" th:object="${boots}" method="POST">
+        <p> Model
+            <input type="text" th:field="*{model}"/>
+        </p>
+        <p> Brand
+            <select th:field="*{brand}">
+                <option value=""></option>
+                <option th:each="brand:${brands}" th:value="${brand}" th:utext="${brand}"/>
+            </select>
+        </p>
+        <p> Year
+            <input type="text" th:field="*{year}"/>
+        </p>
+        <p> Lacing
+            <select th:field="*{lacing}">
+                <option value=""></option>
+                <option th:each="lacing:${lacings}" th:value="${lacing}" th:utext="${lacing}"/>
+            </select>
+        </p>
+        <p> Flex
+            <select th:field="*{flex}">
+                <option value=""></option>
+                <option th:each="flex:${flexes}" th:value="${flex}" th:utext="${flex}"/>
+            </select>
+        </p>
+        <p> Level
+            <select th:field="*{level}">
+                <option value=""></option>
+                <option th:each="level:${levels}" th:value="${level}" th:utext="${level}"/>
+            </select>
+        </p>
+
+        <p><input type="submit" value="Submit"/></p>
+        <p><input type="reset" value="Reset"/></p>
+    </form>
+</body>
+</html>
