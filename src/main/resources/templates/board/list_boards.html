@@ -2,15 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en"/>
 <head>
     <meta charset="UTF-8"/>
-    <title>Board Main</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Board Main</title>
 </head>
 <body>
-    Board Main Page
     <div class="container">
+        <div class="jumbotron" align="center">
+            <h1>BOARDS</h1>
+        </div>
+        <div id="nav-placeholder"></div>
+        <a href="/board/add" class="btn btn-default" role="button" data-toggle="modal" data-target="#addBoardModal">ADD NEW BOARD</a>
         <table class="table table-striped">
             <thead>
                 <th>BOARD ID</th>
@@ -42,5 +45,16 @@
             </tbody>
         </table>
     </div>
+    <div class="modal fade" id="addBoardModal">
+        <div class="modal-dialog" style="width: auto">
+            <div class="modal-content" style="width: inherit">
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../navbar");
+        });
+    </script>
 </body>
 </html>

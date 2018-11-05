@@ -2,15 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en"/>
 <head>
     <meta charset="UTF-8"/>
-    <title>Bindings Main</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Bindings Main</title>
 </head>
 <body>
-    Bindings Main Page
     <div class="container">
+        <div class="jumbotron" align="center">
+            <h1>BINDINGS</h1>
+        </div>
+        <div id="nav-placeholder"></div>
+        <a href="/bindings/add" class="btn btn-default" role="button" data-toggle="modal" data-target="#addBindingModal">ADD NEW BINDINGS</a>
         <table class="table table-striped">
             <thead>
                 <th>BINDINGS ID</th>
@@ -22,17 +25,28 @@
                 <th>LEVEL</th>
             </thead>
             <tbody>
-                <tr th:each="binding:${bindings_list}">
-                    <td th:text="${binding.id}"></td>
-                    <td th:text="${binding.model}"></td>
-                    <td th:text="${binding.brand}"></td>
-                    <td th:text="${binding.year}"></td>
-                    <td th:text="${binding.strap}"></td>
-                    <td th:text="${binding.flex}"></td>
-                    <td th:text="${binding.level}"></td>
-                </tr>
+            <tr th:each="binding:${bindings_list}">
+                <td th:text="${binding.id}"></td>
+                <td th:text="${binding.model}"></td>
+                <td th:text="${binding.brand}"></td>
+                <td th:text="${binding.year}"></td>
+                <td th:text="${binding.strap}"></td>
+                <td th:text="${binding.flex}"></td>
+                <td th:text="${binding.level}"></td>
+            </tr>
             </tbody>
         </table>
     </div>
+    <div class="modal fade" id="addBindingModal">
+        <div class="modal-dialog" style="width: auto">
+            <div class="modal-content" style="width: inherit">
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../navbar");
+        });
+    </script>
 </body>
 </html>

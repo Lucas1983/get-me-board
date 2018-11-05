@@ -12,4 +12,5 @@ public interface EquipmentService<T extends Equipment> {
     public Collection<T> findAll() throws Exception;
 
     public void save(T equipment) throws Exception;
+
 }

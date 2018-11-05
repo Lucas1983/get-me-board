@@ -35,5 +35,4 @@ public class BindingsService implements EquipmentService<Bindings> {
         bindingsRepository.save(equipment);
     }
 
-
 }

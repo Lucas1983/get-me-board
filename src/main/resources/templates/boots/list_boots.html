@@ -2,15 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Boots Main</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Boots Main</title>
 </head>
 <body>
-    Boots Main Page
     <div class="container">
+        <div class="jumbotron" align="center">
+            <h1>BOOTS</h1>
+        </div>
+        <div id="nav-placeholder"></div>
+        <a href="/boots/add" class="btn btn-default" role="button" data-toggle="modal" data-target="#addBootsModal">ADD NEW BOOTS</a>
         <table class="table table-striped">
             <thead>
             <th>BOOTS ID</th>
@@ -34,5 +37,16 @@
             </tbody>
         </table>
     </div>
+    <div class="modal fade" id="addBootsModal">
+        <div class="modal-dialog" style="width: auto">
+            <div class="modal-content" style="width: inherit">
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../navbar");
+        });
+    </script>
 </body>
 </html>
