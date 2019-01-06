@@ -32,7 +32,17 @@ public class BootsService implements EquipmentService<Boots> {
     }
 
     @Override
-    public void save(Boots equipment) throws Exception {
-        bootsRepository.save(equipment);
+    public void save(Boots boots) throws Exception {
+        bootsRepository.save(boots);
+    }
+
+    @Override
+    public void delete(Boots boots) throws Exception {
+        bootsRepository.delete(boots);
+    }
+
+    @Override
+    public void deleteById(long id) throws Exception {
+        bootsRepository.deleteById(id);
     }
 }

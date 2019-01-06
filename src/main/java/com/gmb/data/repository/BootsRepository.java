@@ -4,8 +4,10 @@ import com.gmb.data.entity.cons.Lacing;
 import com.gmb.data.entity.eqt.Boots;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface BootsRepository extends EquipmentRepository<Boots>{
 
-    default public Boots findByLacing(Lacing lacing) { return null; };
+    public List<Boots> findByLacing(Lacing lacing);
 }

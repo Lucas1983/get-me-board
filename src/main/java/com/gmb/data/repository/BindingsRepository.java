@@ -4,8 +4,10 @@ import com.gmb.data.entity.cons.Strap;
 import com.gmb.data.entity.eqt.Bindings;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface BindingsRepository extends EquipmentRepository<Bindings> {
 
-    default public Bindings findByStrap (Strap strap) { return null; };
+    public List<Bindings> findByStrap (Strap strap);
 }

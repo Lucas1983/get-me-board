@@ -4,17 +4,19 @@ import com.gmb.data.entity.cons.*;
 import com.gmb.data.entity.eqt.Board;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface BoardRepository extends EquipmentRepository<Board> {
 
-    default public Board findByType(Type type){ return null; };
+    public List<Board> findByType(Type type);
 
-    default public Board findByProfile(Profile profile){ return null; };
+    public List<Board> findByProfile(Profile profile);
 
-    default public Board findByShape(Shape shape){ return null; };
+    public List<Board> findByShape(Shape shape);
 
-    default public Board findByCore(Core core){ return null; };
+    public List<Board> findByCore(Core core);
 
-    default public Board findByBase(Base base) { return null; };
+    public List<Board> findByBase(Base base);
 
 }
