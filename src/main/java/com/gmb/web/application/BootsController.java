@@ -52,4 +52,11 @@ public class BootsController implements EquipmentControllerIfc {
         bootsService.save(boots);
         return "redirect:list";
     }
+
+    @GetMapping("/remove/{id}")
+    public String removeBootsById(@PathVariable Long id) throws Exception {
+
+        bootsService.deleteById(id);
+        return "redirect:../list";
+    }
 }

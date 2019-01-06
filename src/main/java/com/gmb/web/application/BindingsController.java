@@ -51,6 +51,13 @@ public class BindingsController implements EquipmentControllerIfc{
     public String addBinding(@ModelAttribute Bindings bindings) throws Exception {
 
         bindingsService.save(bindings);
-        return "redirect:list";
+        return "redirect:../list";
+    }
+
+    @GetMapping("/remove/{id}")
+    public String removeBindingsById(@PathVariable Long id) throws Exception {
+
+        bindingsService.deleteById(id);
+        return "redirect:../list";
     }
 }

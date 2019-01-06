@@ -31,7 +31,17 @@ public class BoardService implements EquipmentService<Board> {
     }
 
     @Override
-    public void save(Board equipment) throws Exception {
-        boardRepository.save(equipment);
+    public void save(Board board) throws Exception {
+        boardRepository.save(board);
+    }
+
+    @Override
+    public void delete(Board board) throws Exception {
+        boardRepository.delete(board);
+    }
+
+    @Override
+    public void deleteById(long id) throws Exception {
+        boardRepository.deleteById(id);
     }
 }

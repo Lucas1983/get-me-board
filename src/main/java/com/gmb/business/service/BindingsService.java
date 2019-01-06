@@ -31,8 +31,18 @@ public class BindingsService implements EquipmentService<Bindings> {
     }
 
     @Override
-    public void save(Bindings equipment) throws Exception {
-        bindingsRepository.save(equipment);
+    public void save(Bindings bindings) throws Exception {
+        bindingsRepository.save(bindings);
+    }
+
+    @Override
+    public void delete(Bindings bindings) throws Exception {
+        bindingsRepository.delete(bindings);
+    }
+
+    @Override
+    public void deleteById(long id) throws Exception {
+        bindingsRepository.deleteById(id);
     }
 
 }

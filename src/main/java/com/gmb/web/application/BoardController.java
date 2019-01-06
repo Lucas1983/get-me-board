@@ -53,4 +53,11 @@ public class BoardController implements EquipmentControllerIfc{
         boardService.save(board);
         return "redirect:list";
     }
+
+    @GetMapping("/remove/{id}")
+    public String removeBoardById(@PathVariable Long id) throws Exception {
+
+        boardService.deleteById(id);
+        return "redirect:../list";
+    }
 }

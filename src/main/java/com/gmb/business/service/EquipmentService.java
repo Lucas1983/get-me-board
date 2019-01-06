@@ -13,4 +13,7 @@ public interface EquipmentService<T extends Equipment> {
 
     public void save(T equipment) throws Exception;
 
+    public void delete(T equipment) throws Exception;
+
+    public void deleteById(long id) throws Exception;
 }
