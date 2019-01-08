@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class BootsService implements EquipmentService<Boots> {
@@ -19,8 +20,8 @@ public class BootsService implements EquipmentService<Boots> {
     }
 
     @Override
-    public Boots findOne() throws Exception {
-        return null;
+    public Optional<Boots> findOneById(Long id) throws Exception {
+        return bootsRepository.findOneById(id);
     }
 
     @Override
@@ -32,17 +33,22 @@ public class BootsService implements EquipmentService<Boots> {
     }
 
     @Override
-    public void save(Boots boots) throws Exception {
-        bootsRepository.save(boots);
+    public void create(Boots boots) throws Exception {
+        bootsRepository.create(boots);
     }
 
     @Override
-    public void delete(Boots boots) throws Exception {
+    public void update(Boots boots) throws Exception {
+        bootsRepository.update(boots);
+    }
+
+    @Override
+    public void remove(Boots boots) throws Exception {
         bootsRepository.delete(boots);
     }
 
     @Override
-    public void deleteById(long id) throws Exception {
+    public void removeById(Long id) throws Exception {
         bootsRepository.deleteById(id);
     }
 }

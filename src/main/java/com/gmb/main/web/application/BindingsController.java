@@ -37,7 +37,7 @@ public class BindingsController implements EquipmentControllerIfc{
     }
 
     @GetMapping("/add")
-    public String addBinding(ModelMap model) throws Exception {
+    public String addBindings(ModelMap model) throws Exception {
 
         model.put("bindings", new Bindings());
         model.put("brands", Brand.values());
@@ -48,16 +48,37 @@ public class BindingsController implements EquipmentControllerIfc{
     }
 
     @PostMapping("/add")
-    public String addBinding(@ModelAttribute Bindings bindings) throws Exception {
+    public String addBindings(@ModelAttribute Bindings bindings) throws Exception {
 
-        bindingsService.save(bindings);
+        bindingsService.create(bindings);
+        return "redirect:../list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String updateBindings(@PathVariable Long id, ModelMap model) throws Exception {
+
+        Bindings bindings = bindingsService.findOneById(id)
+                                            .orElseThrow(() -> new RuntimeException("Invalid bindings id"));
+
+        model.put("bindings", bindings);
+        model.put("brands", Brand.values());
+        model.put("straps", Strap.values());
+        model.put("flexes", Flex.values());
+        model.put("levels", Level.values());
+        return "bindings/edit_bindings";
+    }
+
+    @PostMapping("/edit")
+    public String updateBindings(@ModelAttribute Bindings bindings) throws Exception {
+
+        bindingsService.update(bindings);
         return "redirect:../list";
     }
 
     @GetMapping("/remove/{id}")
     public String removeBindingsById(@PathVariable Long id) throws Exception {
 
-        bindingsService.deleteById(id);
+        bindingsService.removeById(id);
         return "redirect:../list";
     }
 }

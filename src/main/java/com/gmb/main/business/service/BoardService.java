@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class BoardService implements EquipmentService<Board> {
@@ -19,8 +20,8 @@ public class BoardService implements EquipmentService<Board> {
     }
 
     @Override
-    public Board findOne() throws Exception {
-        return null;
+    public Optional<Board> findOneById(Long id) throws Exception {
+        return boardRepository.findOneById(id);
     }
 
     @Override
@@ -31,17 +32,22 @@ public class BoardService implements EquipmentService<Board> {
     }
 
     @Override
-    public void save(Board board) throws Exception {
-        boardRepository.save(board);
+    public void create(Board board) throws Exception {
+        boardRepository.create(board);
     }
 
     @Override
-    public void delete(Board board) throws Exception {
+    public void update(Board board) throws Exception {
+        boardRepository.update(board);
+    }
+
+    @Override
+    public void remove(Board board) throws Exception {
         boardRepository.delete(board);
     }
 
     @Override
-    public void deleteById(long id) throws Exception {
+    public void removeById(Long id) throws Exception {
         boardRepository.deleteById(id);
     }
 }

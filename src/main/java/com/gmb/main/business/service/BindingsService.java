@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class BindingsService implements EquipmentService<Bindings> {
@@ -19,8 +20,8 @@ public class BindingsService implements EquipmentService<Bindings> {
     }
 
     @Override
-    public Bindings findOne() throws Exception {
-        return null;
+    public Optional<Bindings> findOneById(Long id) throws Exception {
+        return bindingsRepository.findOneById(id);
     }
 
     @Override
@@ -31,17 +32,22 @@ public class BindingsService implements EquipmentService<Bindings> {
     }
 
     @Override
-    public void save(Bindings bindings) throws Exception {
-        bindingsRepository.save(bindings);
+    public void create(Bindings bindings) throws Exception {
+        bindingsRepository.create(bindings);
     }
 
     @Override
-    public void delete(Bindings bindings) throws Exception {
+    public void update(Bindings bindings) throws Exception {
+        bindingsRepository.update(bindings);
+    }
+
+    @Override
+    public void remove(Bindings bindings) throws Exception {
         bindingsRepository.delete(bindings);
     }
 
     @Override
-    public void deleteById(long id) throws Exception {
+    public void removeById(Long id) throws Exception {
         bindingsRepository.deleteById(id);
     }
 

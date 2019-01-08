@@ -3,7 +3,7 @@
         <a href="/bindings/add" class="btn btn-success" role="button" data-toggle="modal" data-target="#addBindingModal">ADD NEW BINDINGS</a>
         <table class="table table-striped">
             <thead>
-                <th>BINDINGS ID</th>
+                <th>ID</th>
                 <th>MODEL</th>
                 <th>BRAND</th>
                 <th>YEAR</th>
@@ -21,6 +21,7 @@
                     <td th:text="${binding.strap}"></td>
                     <td th:text="${binding.flex}"></td>
                     <td th:text="${binding.level}"></td>
+                    <td><a th:href="@{'/bindings/edit/'+${binding.id}}" type="button" class="btn btn-info" role="button">UPDATE</a></td>
                     <td><a th:href="@{'/bindings/remove/'+${binding.id}}" type="button" class="btn btn-danger" role="button">DELETE</a></td>
                 </tr>
             </tbody>

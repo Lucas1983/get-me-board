@@ -49,14 +49,34 @@ public class BootsController implements EquipmentControllerIfc {
     @PostMapping("/add")
     public String addBoots(@ModelAttribute Boots boots) throws Exception {
 
-        bootsService.save(boots);
+        bootsService.create(boots);
         return "redirect:list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editBoots(@PathVariable Long id, ModelMap model) throws Exception {
+
+        Boots boots = bootsService.findOneById(id)
+                                    .orElseThrow(() -> new RuntimeException("Invalid boots id"));
+        model.put("boots", boots);
+        model.put("brands", Brand.values());
+        model.put("lacings", Lacing.values());
+        model.put("flexes", Flex.values());
+        model.put("levels", Level.values());
+        return "boots/edit_boots";
+    }
+
+    @PostMapping("/edit")
+    public String editBoots(@ModelAttribute Boots boots) throws Exception {
+
+        bootsService.update(boots);
+        return "redirect:../list";
     }
 
     @GetMapping("/remove/{id}")
     public String removeBootsById(@PathVariable Long id) throws Exception {
 
-        bootsService.deleteById(id);
+        bootsService.removeById(id);
         return "redirect:../list";
     }
 }

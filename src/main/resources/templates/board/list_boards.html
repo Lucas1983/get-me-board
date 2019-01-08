@@ -3,7 +3,7 @@
         <a href="/board/add" class="btn btn-success" role="button" data-toggle="modal" data-target="#addBoardModal">ADD NEW BOARD</a>
         <table class="table table-striped">
             <thead>
-                <th>BOARD ID</th>
+                <th>ID</th>
                 <th>MODEL</th>
                 <th>BRAND</th>
                 <th>YEAR</th>
@@ -29,6 +29,7 @@
                     <td th:text="${board.base}"></td>
                     <td th:text="${board.flex}"></td>
                     <td th:text="${board.level}"></td>
+                    <td><a th:href="@{'/board/edit/'+${board.id}}" type="button" class="btn btn-info" role="button">UPDATE</a></td>
                     <td><a th:href="@{'/board/remove/'+${board.id}}" type="button" class="btn btn-danger" role="button">DELETE</a></td>
                 </tr>
             </tbody>
