@@ -1,6 +1,6 @@
 package com.gmb;
 
-import com.gmb.web.application.HomeController;
+import com.gmb.main.web.application.HomeController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
