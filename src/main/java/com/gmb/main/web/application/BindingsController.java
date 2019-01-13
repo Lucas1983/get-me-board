@@ -8,7 +8,9 @@ import com.gmb.main.data.entity.cons.Level;
 import com.gmb.main.data.entity.cons.Strap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -23,10 +25,13 @@ public class BindingsController implements EquipmentControllerIfc{
     }
 
 
-    @GetMapping("/")
-    @ResponseBody
-    public String main() {
-        return "Main BINDINGS page";
+    @GetMapping("/{id}")
+    public String showBindingsDetails(@PathVariable Long id, Model model) throws Exception {
+
+        Bindings bindings = bindingsService.findOneById(id)
+                .orElseThrow(() -> new RuntimeException("Invalid bindings id !"));
+        model.addAttribute("bindings", bindings);
+        return "bindings/details_bindings";
     }
 
     @GetMapping("/list")
@@ -48,8 +53,11 @@ public class BindingsController implements EquipmentControllerIfc{
     }
 
     @PostMapping("/add")
-    public String addBindings(@ModelAttribute Bindings bindings) throws Exception {
+    public String addBindings(@ModelAttribute Bindings bindings, BindingResult result) throws Exception {
 
+        if (result.hasErrors()) {
+            return "/add";
+        }
         bindingsService.create(bindings);
         return "redirect:../list";
     }
@@ -69,14 +77,17 @@ public class BindingsController implements EquipmentControllerIfc{
     }
 
     @PostMapping("/edit")
-    public String updateBindings(@ModelAttribute Bindings bindings) throws Exception {
+    public String updateBindings(@ModelAttribute Bindings bindings, BindingResult result) throws Exception {
 
+        if (result.hasErrors()){
+            return "edit";
+        }
         bindingsService.update(bindings);
-        return "redirect:../list";
+        return "redirect:/bindings/list";
     }
 
     @GetMapping("/remove/{id}")
-    public String removeBindingsById(@PathVariable Long id) throws Exception {
+    public String removeBindings(@PathVariable Long id) throws Exception {
 
         bindingsService.removeById(id);
         return "redirect:../list";

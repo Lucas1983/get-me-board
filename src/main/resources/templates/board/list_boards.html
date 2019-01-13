@@ -29,8 +29,9 @@
                     <td th:text="${board.base}"></td>
                     <td th:text="${board.flex}"></td>
                     <td th:text="${board.level}"></td>
-                    <td><a th:href="@{'/board/edit/'+${board.id}}" type="button" class="btn btn-info" role="button">UPDATE</a></td>
-                    <td><a th:href="@{'/board/remove/'+${board.id}}" type="button" class="btn btn-danger" role="button">DELETE</a></td>
+                    <td><a th:href="@{'/board/'+${board.id}}" type="button" class="btn btn-info btn-sm" role="button">DETAILS</a></td>
+                    <td><a th:href="@{'/board/edit/'+${board.id}}" type="button" class="btn btn-warning btn-sm" role="button">UPDATE</a></td>
+                    <td><a th:href="@{'/board/remove/'+${board.id}}" type="button" class="btn btn-danger btn-sm" role="button">DELETE</a></td>
                 </tr>
             </tbody>
         </table>

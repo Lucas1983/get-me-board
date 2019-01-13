@@ -5,7 +5,9 @@ import com.gmb.main.data.entity.Board;
 import com.gmb.main.data.entity.cons.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -19,10 +21,13 @@ public class BoardController implements EquipmentControllerIfc{
         this.boardService = boardService;
     }
 
-    @GetMapping("/")
-    @ResponseBody
-    public String main() {
-        return "Main BOARD page";
+    @GetMapping("/{id}")
+    public String showBoardDetails(@PathVariable Long id, Model model) throws Exception {
+
+        Board board = boardService.findOneById(id)
+                .orElseThrow(() -> new RuntimeException("Invalid board id"));
+        model.addAttribute("board", board);
+        return "/board/details_board";
     }
 
     @GetMapping("/list")
@@ -48,8 +53,11 @@ public class BoardController implements EquipmentControllerIfc{
     }
 
     @PostMapping("/add")
-    public String addBoard(@ModelAttribute Board board) throws Exception {
+    public String addBoard(@ModelAttribute Board board, BindingResult result) throws Exception {
 
+        if (result.hasErrors()){
+            return "/add";
+        }
         boardService.create(board);
         return "redirect:list";
     }
@@ -72,14 +80,17 @@ public class BoardController implements EquipmentControllerIfc{
     }
 
     @PostMapping("/edit")
-    public String editBoard(@ModelAttribute Board board) throws Exception {
+    public String editBoard(@ModelAttribute Board board, BindingResult result) throws Exception {
 
+        if (result.hasErrors()){
+            return "/edit";
+        }
         boardService.update(board);
-        return "redirect:../list";
+        return "redirect:/board/list";
     }
 
     @GetMapping("/remove/{id}")
-    public String removeBoardById(@PathVariable Long id) throws Exception {
+    public String removeBoard(@PathVariable Long id) throws Exception {
 
         boardService.removeById(id);
         return "redirect:../list";

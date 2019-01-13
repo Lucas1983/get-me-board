@@ -2,9 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Board details</title>
 </head>
 <body>
+<div class="container">
+        <div class="modal-header" style="width: inherit">
+            <h1 class="modal-title" id="newBoardLabel">Board details</h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body" style="width: inherit">
 
+            <div class="form-group">
+                <label for="model" >MODEL</label>
+                <output id="model" th:text="${board.model}"/>
+            </div>
+            <div class="form-group" style="width: auto">
+                <label for="brand">BRAND</label>
+                <output id="brand" th:text="${board.brand}"/>
+            </div>
+            <div class="form-group">
+                <label for="year">YEAR</label>
+                <output id="year" th:text="${board.year}"/>
+            </div>
+            <div class="form-group">
+                <label for="shape">SHAPE</label>
+                <output id="shape" th:text="${board.shape}"/>
+            </div>
+            <div class="form-group">
+                <label for="profile">PROFILE</label>
+                <output id="profile" th:text="${board.profile}"/>
+            </div>
+            <div class="form-group">
+                <label for="type">TYPE</label>
+                <output id="type" th:text="${board.type}"/>
+            </div>
+            <div class="form-group">
+                <label for="core">CORE</label>
+                <output id="core" th:text="${board.core}"/>
+            </div>
+            <div class="form-group">
+                <label for="base">BASE</label>
+                <output id="base" th:text="${board.base}"/>
+            </div>
+            <div class="form-group">
+                <label for="flex">FLEX</label>
+                <output id="flex" th:text="${board.flex}"/>
+            </div>
+            <div class="form-group">
+                <label for="level">LEVEL</label>
+                <output id="level" th:text="${board.level}"/>
+            </div>
+        </div>
+        <div class="modal-footer" style="width: inherit">
+            <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+        </div>
+</div>
 </body>
 </html>

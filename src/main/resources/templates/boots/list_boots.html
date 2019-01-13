@@ -21,8 +21,9 @@
                     <td th:text="${boots.lacing}"></td>
                     <td th:text="${boots.flex}"></td>
                     <td th:text="${boots.level}">
-                    <td><a th:href="@{'/boots/edit/'+${boots.id}}" type="button" class="btn btn-info" role="button">UPDATE</a></td>
-                    <td><a th:href="@{'/boots/remove/'+${boots.id}}" type="button" class="btn btn-danger" role="button">DELETE</a></td>
+                    <td><a th:href="@{'/boots/'+${boots.id}}" type="button" class="btn btn-info btn-sm" role="button">DETAILS</a></td>
+                    <td><a th:href="@{'/boots/edit/'+${boots.id}}" type="button" class="btn btn-warning btn-sm" role="button">UPDATE</a></td>
+                    <td><a th:href="@{'/boots/remove/'+${boots.id}}" type="button" class="btn btn-danger btn-sm" role="button">DELETE</a></td>
                 </tr>
             </tbody>
         </table>

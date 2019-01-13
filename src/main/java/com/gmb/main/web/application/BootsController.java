@@ -8,7 +8,9 @@ import com.gmb.main.data.entity.cons.Lacing;
 import com.gmb.main.data.entity.cons.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -22,10 +24,13 @@ public class BootsController implements EquipmentControllerIfc {
         this.bootsService = bootsService;
     }
 
-    @GetMapping("/")
-    @ResponseBody
-    public String main() {
-        return "Main BOOTS page";
+    @GetMapping("/{id}")
+    public String showBootsDetails(@PathVariable Long id, Model model) throws Exception {
+
+        Boots boots = bootsService.findOneById(id)
+                .orElseThrow(() -> new RuntimeException("Invalid boots id "));
+        model.addAttribute("boots", boots);
+        return "/boots/details_boots";
     }
 
     @GetMapping("/list")
@@ -47,8 +52,11 @@ public class BootsController implements EquipmentControllerIfc {
     }
 
     @PostMapping("/add")
-    public String addBoots(@ModelAttribute Boots boots) throws Exception {
+    public String addBoots(@ModelAttribute Boots boots, BindingResult result) throws Exception {
 
+        if (result.hasErrors()){
+            return "/add";
+        }
         bootsService.create(boots);
         return "redirect:list";
     }
@@ -67,14 +75,18 @@ public class BootsController implements EquipmentControllerIfc {
     }
 
     @PostMapping("/edit")
-    public String editBoots(@ModelAttribute Boots boots) throws Exception {
+    public String editBoots(@ModelAttribute Boots boots, BindingResult result) throws Exception {
+
+        if (result.hasErrors()){
+            return "/edit";
+        }
 
         bootsService.update(boots);
-        return "redirect:../list";
+        return "redirect:/boots/list";
     }
 
     @GetMapping("/remove/{id}")
-    public String removeBootsById(@PathVariable Long id) throws Exception {
+    public String removeBoots(@PathVariable Long id) throws Exception {
 
         bootsService.removeById(id);
         return "redirect:../list";
