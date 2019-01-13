@@ -30,14 +30,14 @@ public class BootsController implements EquipmentControllerIfc {
         Boots boots = bootsService.findOneById(id)
                 .orElseThrow(() -> new RuntimeException("Invalid boots id "));
         model.addAttribute("boots", boots);
-        return "/boots/details_boots";
+        return "/boots/details";
     }
 
     @GetMapping("/list")
     public String listBoots(ModelMap model) throws Exception {
 
         model.put("boots_list", bootsService.findAll());
-        return  "boots/list_boots";
+        return  "boots/list";
     }
 
     @GetMapping("/add")
@@ -48,7 +48,7 @@ public class BootsController implements EquipmentControllerIfc {
         model.put("lacings", Lacing.values());
         model.put("flexes", Flex.values());
         model.put("levels", Level.values());
-        return "boots/add_boots";
+        return "boots/add";
     }
 
     @PostMapping("/add")
@@ -71,7 +71,7 @@ public class BootsController implements EquipmentControllerIfc {
         model.put("lacings", Lacing.values());
         model.put("flexes", Flex.values());
         model.put("levels", Level.values());
-        return "boots/edit_boots";
+        return "boots/edit";
     }
 
     @PostMapping("/edit")

@@ -31,14 +31,14 @@ public class BindingsController implements EquipmentControllerIfc{
         Bindings bindings = bindingsService.findOneById(id)
                 .orElseThrow(() -> new RuntimeException("Invalid bindings id !"));
         model.addAttribute("bindings", bindings);
-        return "bindings/details_bindings";
+        return "bindings/details";
     }
 
     @GetMapping("/list")
     public String listBindings(ModelMap model) throws Exception {
 
         model.put("bindings_list", bindingsService.findAll());
-        return "bindings/list_bindings";
+        return "bindings/list";
     }
 
     @GetMapping("/add")
@@ -49,7 +49,7 @@ public class BindingsController implements EquipmentControllerIfc{
         model.put("straps", Strap.values());
         model.put("flexes", Flex.values());
         model.put("levels", Level.values());
-        return "bindings/add_bindings";
+        return "bindings/add";
     }
 
     @PostMapping("/add")
@@ -73,7 +73,7 @@ public class BindingsController implements EquipmentControllerIfc{
         model.put("straps", Strap.values());
         model.put("flexes", Flex.values());
         model.put("levels", Level.values());
-        return "bindings/edit_bindings";
+        return "bindings/edit";
     }
 
     @PostMapping("/edit")

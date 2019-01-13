@@ -27,14 +27,14 @@ public class BoardController implements EquipmentControllerIfc{
         Board board = boardService.findOneById(id)
                 .orElseThrow(() -> new RuntimeException("Invalid board id"));
         model.addAttribute("board", board);
-        return "/board/details_board";
+        return "/board/details";
     }
 
     @GetMapping("/list")
     public String listBoards(ModelMap model) throws Exception {
 
         model.put("boards_list", boardService.findAll());
-        return "board/list_boards";
+        return "board/list";
     }
 
     @GetMapping("/add")
@@ -49,7 +49,7 @@ public class BoardController implements EquipmentControllerIfc{
         model.put("bases", Base.values());
         model.put("flexes", Flex.values());
         model.put("levels", Level.values());
-        return "board/add_board";
+        return "board/add";
     }
 
     @PostMapping("/add")
@@ -76,7 +76,7 @@ public class BoardController implements EquipmentControllerIfc{
         model.put("bases", Base.values());
         model.put("flexes", Flex.values());
         model.put("levels", Level.values());
-        return "board/edit_board";
+        return "board/edit";
     }
 
     @PostMapping("/edit")
