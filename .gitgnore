@@ -1,0 +1,7 @@
+.idea/
+.mvn/
+get-me-board.iml
+mvnw
+mvnw.cmd
+spec.txt
+target/
