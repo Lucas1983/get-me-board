@@ -14,7 +14,6 @@
 
 	<artifactId>get-me-board-frontend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 
 	<build>
 
@@ -31,6 +30,11 @@
         <version>1.6</version>
 
         <executions>
+
+            <execution>
+              <phase>none</phase>
+            </execution>
+
             <execution>
                 <id>install node and npm</id>
                 <goals>
