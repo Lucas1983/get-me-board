@@ -1,0 +1,22 @@
+  <hr />
+  <div class="row text-center">
+    <div class="col-lg ">
+        <button class="btn btn-outline-dark btn-lg" (click)="showList('boards')">BOARDS</button>
+    </div>
+    <div class="col-lg ">
+      <button class="btn btn-outline-dark btn-lg" (click)="showList('boots')">BOOTS</button>
+    </div>
+    <div class="col-lg ">
+      <button class="btn btn-outline-dark btn-lg" (click)="showList('bindings')">BINDINGS</button>
+    </div>
+  </div>
+  <hr />
+
+  <div class="card-deck ">
+    <equipment-comp *ngFor="let eqt of equipmentList" [equipment]="eqt"
+                    (delete)="app.onEquipmentDelete($event)"
+                    (save)="app.onEquipmentSave($event)"
+                    (update)="app.onEquipmentUpdate($event)">
+
+    </equipment-comp>
+  </div>

@@ -1,0 +1,18 @@
+.bootsComp{
+    font-family: Verdana;
+    color: green;
+    border-color: green;
+    border: solid;
+}
+
+.boardComp{
+    font-family: Arial;
+    color: blue;
+    border-color: blue;
+}
+
+.bindingsComp{
+    font-family: "Courier New";
+    color: red;
+    border-color: red;
+}

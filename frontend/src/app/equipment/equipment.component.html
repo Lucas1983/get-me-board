@@ -1,0 +1,22 @@
+<div class="card border-dark text-white mb-3 mt-3 ml-3 mr-3" style="min-width: 15rem">
+    <div class="card-header bg-transparent border-dark text-dark">Type : {{equipment.type}}</div>
+    <div class="card-body text-dark">
+        <h5 class="card-title text-dark">ID : {{equipment.id}}</h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name : {{equipment.name}}</li>
+            <li class="list-group-item">Brand : {{equipment.brand}}</li>
+            <li class="list-group-item">Model {{equipment.model}}</li>
+        </ul>
+    </div>
+    <div class="card-footer bg-transparent border-dark">
+        <!--button type="button" class="btn btn-outline-success" (click)="onSave()">
+            <fa-icon [icon]="addIcon">ADD</fa-icon>
+        </button-->
+        <button type="button" class="btn btn-outline-dark btn-lg btn-block" (click)="onUpdate()">UPDATE
+            <!--fa-icon [icon]="editIcon" size="lg"></fa-icon-->
+        </button>
+        <button type="button" class="btn btn-outline-dark btn-lg btn-block" (click)="onDelete()">REMOVE
+            <!--fa-icon-- [icon]="deleteIcon" size="lg"></fa-icon-->
+        </button>
+    </div>
+</div>

@@ -1,15 +1,12 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-    <!--nav class="navbar navbar-dark bg-dark">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-    </nav-->
-    <div class="jumbotron" align="center">
-        <img class="img-fluid" src="img/logo.jpg">
+
+<div id="main" class="container">
+
+    <div id="logo" class="jumbotron" align="center">
+        <img class="img-fluid" src="assets/images/logo.jpg">
     </div>
-    <!--div id="nav-placeholder">NAV</div-->
-    <!--div id="content-placeholder">CONTENT</div-->
+
+    <search-comp (search)="onEquipmentSearch()"></search-comp>
+    <equipment-list-comp [app]="this" *ngIf="searchExecuted"></equipment-list-comp>
+
 </div>
 <router-outlet></router-outlet>

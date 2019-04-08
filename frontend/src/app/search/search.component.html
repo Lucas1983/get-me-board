@@ -1,0 +1,26 @@
+<hr />
+<div id="search-form" class="container text-center">
+  <form>
+    <h1 [innerHTML]="name"></h1>
+    <div class="form-group">
+      <label for="sex" class="h5">SEX</label>
+      <select id="sex" class="form-control col-md-4 offset-4">
+        <option value="male">MALE</option>
+        <option value="female">FEMALE</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="height" class="h5">HEIGHT </label>
+      <input id="height" type="number" class="form-control col-md-4 offset-4" placeholder="Enter height ...">
+    </div>
+    <div class="form-group">
+      <label for="weight" class="h5">WEIGHT</label>
+      <input id="weight" type="number" class="form-control col-md-4 offset-4" placeholder="Enter weight ...">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-danger btn-lg" (click)="onSearch()">SEARCH KIT</button>
+    </div>
+  </form>
+</div>
+<hr />
+
